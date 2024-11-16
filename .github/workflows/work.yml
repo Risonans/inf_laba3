@@ -1,1 +1,44 @@
-name: Tests
+name: Python package
+
+on:
+  push:
+    branches:
+      - main  # или ветка, которую вы используете
+  pull_request:
+    branches:
+      - main  # или ветка, которую вы используете
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Укажите версию Python, которую вы используете
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-html  # Установите pytest и плагин для генерации HTML отчета
+
+    - name: Run tests
+      run: |
+        pytest --html=report.html  # Запуск тестов с генерацией HTML отчета
+
+    - name: Upload test report
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-report
+        path: report.html  # Путь к сгенерированному отчету
+
+    - name: Upload source code
+      if: success()  # Выгрузка кода только при успешном прохождении тестов
+      uses: actions/upload-artifact@v2
+      with:
+        name: source-code
+        path: .  # Выгрузка всего кода
