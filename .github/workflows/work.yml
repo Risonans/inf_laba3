@@ -33,3 +33,18 @@ jobs:
 
       - name: Run tests
         run: pytest test_My_lib.py --html=report.html
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: html-report
+          path: report.html
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: main-code
+          path: my_lib.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tests-code
+          path: test_My_lib.py
