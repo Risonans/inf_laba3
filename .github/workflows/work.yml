@@ -36,14 +36,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: html-report
-          path: inf_laba3/report.html
+          path: report.html
       
       - uses: actions/upload-artifact@v4
         with:
           name: main-code
-          path: inf_laba3/my_lib.py
+          path: my_lib.py
 
       - uses: actions/upload-artifact@v4
         with:
           name: tests-code
-          path: inf_laba3/test_My_lib.py
+          path: test_My_lib.py
