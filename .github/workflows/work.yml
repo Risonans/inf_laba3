@@ -29,6 +29,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install pytest
+          python -m pip install pytest-html
 
       - name: Run tests
         run: pytest test_My_lib.py --html=report.html
