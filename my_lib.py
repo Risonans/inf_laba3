@@ -20,8 +20,3 @@ def bubble(mas, x):
                 if mas[j] < mas[j + 1]:
                     mas[j], mas[j + 1] = mas[j + 1], mas[j]
         return mas
-
-print("Введите массив и выберите как его отсортировать (1 - по возрастанию / 2 - по убыванию))")
-a = input("Массив: ")
-mas = a_string.split()
-x = int(input("выбери как сортировать: "))
