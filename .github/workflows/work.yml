@@ -31,4 +31,22 @@ jobs:
           python -m pip install pytest
 
       - name: Run tests
-        run: pytest test_My_lib.py
+        run: pytest test_My_lib.py --html=report.html
+      
+      - name: html report
+        uses: actions/upload-artifact@v2
+        with:
+          name: html-report
+          path: report.html
+      
+      - name: main code
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-code
+          path: My_lib.py
+
+      - name: tests code
+        uses: actions/upload-artifact@v2
+        with:
+          name: tests-code
+          path: test_My_lib.py
