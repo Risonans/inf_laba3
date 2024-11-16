@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [windows-latest]
         python_version: 
           - "3.12"
 
@@ -36,15 +36,8 @@ jobs:
       
       - uses: actions/upload-artifact@v4
         with:
-          name: html-report
-          path: report.html
-      
-      - uses: actions/upload-artifact@v4
-        with:
-          name: main-code
-          path: my_lib.py
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: tests-code
-          path: test_My_lib.py
+          name: Artefacts
+          path: |
+            report.html
+            my_lib.py
+            test_My_lib.py
